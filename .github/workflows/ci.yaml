@@ -3,7 +3,7 @@ name: CI Pipeline
 on: 
   pull_request:
     branches:
-      -main 
+      - main 
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '15'
 
       - name: Install dependencies
         run: npm install
@@ -34,4 +34,9 @@ jobs:
 
       - name: Build project
         run: npm run build
-        
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: ./build
