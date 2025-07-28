@@ -3,7 +3,7 @@ name: CI Pipeline
 on: 
   pull_request:
     branches:
-      -main 
+      - main 
 
 jobs:
   build:
@@ -34,4 +34,3 @@ jobs:
 
       - name: Build project
         run: npm run build
-        
